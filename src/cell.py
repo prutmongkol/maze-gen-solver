@@ -1,4 +1,4 @@
-from graphics import Point, Line, Window
+from graphics import Point, Line
 
 
 class Cell():
