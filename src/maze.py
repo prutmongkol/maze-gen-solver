@@ -1,4 +1,6 @@
 import time
+import random
+
 from cell import Cell
 from graphics import Window
 
@@ -13,6 +15,7 @@ class Maze():
         cell_size_x,
         cell_size_y,
         window=None,
+        seed=None,
         ) -> None:
         self._x1 = x1
         self._y1 = y1
@@ -21,6 +24,8 @@ class Maze():
         self._cell_size_x = cell_size_x
         self._cell_size_y = cell_size_y
         self._win = window
+        if seed:
+            random.seed(seed)
         self._cells = None
         self._create_cells()
     
