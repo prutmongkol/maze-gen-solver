@@ -12,7 +12,7 @@ class Maze():
         num_cols,
         cell_size_x,
         cell_size_y,
-        window: Window,
+        window=None,
         ) -> None:
         self._x1 = x1
         self._y1 = y1
@@ -27,18 +27,18 @@ class Maze():
     def _create_cells(self) -> None:
         self._cells = [
             [
-                Cell(self._win) for j in range(self._num_cols)
-            ] for i in range(self._num_rows)
+                Cell(self._win) for j in range(self._num_rows)
+            ] for i in range(self._num_cols)
         ]
-        for i in range(self._num_rows):
-            for j in range(self._num_cols):
+        for i in range(self._num_cols):
+            for j in range(self._num_rows):
                 self._draw_cell(i, j)
     
     def _draw_cell(self, i, j) -> None:
         if self._win is None:
             return
-        col_offset = j * self._cell_size_x
-        row_offset = i * self._cell_size_y
+        col_offset = i * self._cell_size_x
+        row_offset = j * self._cell_size_y
         x1 = self._x1 + col_offset
         y1 = self._y1 + row_offset
         x2 = x1 + self._cell_size_x
